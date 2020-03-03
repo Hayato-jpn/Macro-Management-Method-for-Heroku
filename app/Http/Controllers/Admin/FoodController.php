@@ -57,7 +57,7 @@ class FoodController extends Controller
 
         // 該当するデータを上書きして保存する
         $food->fill($food_form)->save();
-        return redirect('admin/food/');
+        return redirect('admin/food/index');
     }
     
     public function delete(Request $request) {
