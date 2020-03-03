@@ -93,11 +93,16 @@ class FoodController extends Controller
         //Foodマイグレーションファイルから本日データを$foodに入れる
         $today = \Carbon\Carbon::now()->format('Y-m-d');
         // $foods = Food::where('eat_date', $today)->select('eat_time', 'food', 'protein', 'lipid', 'carbohydrate')->all();
+        $food = Food::where('user_id', $user_id)->first();
         $foods = Food::where('user_id', $user_id)->where('eat_date', $today)->get();
         // $post = Food::where('user_id', $user_id)->where('eat_date', $today)->first();
         
         if (empty($profile)) {
             return redirect('admin/profile/create');
+        }
+        
+        if (empty($food)) {
+            return redirect('admin/food/create');
         }
         
         $todayProtein = Food::getTodayProtein($foods);
