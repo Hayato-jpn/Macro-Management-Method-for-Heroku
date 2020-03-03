@@ -106,7 +106,7 @@
                                             </td>
                                             <td>
                                                 <div>
-                                                    <a href="{{ action('Admin\FoodController@refresh', ['id' => $food->id]) }}">削除</a>
+                                                    <a href="{{ action('Admin\FoodController@delete', ['id' => $food->id]) }}">削除</a>
                                                 </div>
                                             </td>
                                         </tr>
