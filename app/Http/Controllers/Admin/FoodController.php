@@ -109,7 +109,7 @@ class FoodController extends Controller
         $todayCarbohydrate = Food::getTodayCarbohydrate($foods);
         $todayLipid = Food::getTodayLipid($foods);
         $todayCalorie = Food::getTodayCalorie($todayProtein, $todayCarbohydrate, $todayLipid);
-        $GoalPercentageCalorie = Food::getGoalPercentageCalorie($todayCalorie, $profile->total_calorie);
+        $goalPercentageCalorie = Food::getGoalPercentageCalorie($todayCalorie, $profile->total_calorie);
         return view('admin.food.today', compact('profile', 'foods', 'todayProtein', 'todayCarbohydrate', 'todayLipid', 'todayCalorie', 'goalPercentageCalorie'));
     }
     
